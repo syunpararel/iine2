@@ -9,4 +9,6 @@ class User < ApplicationRecord
   # # パスワードをアルファベット、数字の混合のみ可能にする。
   validates :password, format: { with: /\A[A-Za-z0-9]+\Z/ }
   has_many :topics
+  has_many :favorites
+  has_many :favorite_topics, through: :favorites, source: 'topic'
 end
